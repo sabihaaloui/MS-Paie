@@ -19,8 +19,9 @@ import com.web.mspaie.security.UserPrincipal;
  * @author thoma
  *
  */
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
-@RequestMapping("/api")
+@RequestMapping(value="/api/v1")
 public class UserController {
 
     @Autowired
