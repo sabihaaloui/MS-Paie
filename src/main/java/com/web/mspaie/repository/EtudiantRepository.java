@@ -10,8 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.web.mspaie.model.Classe;
-import com.web.mspaie.model.Etudiant;
+import com.web.mspaie.models.Classe;
+import com.web.mspaie.models.Etudiant;
 
 /**
  * @author thoma

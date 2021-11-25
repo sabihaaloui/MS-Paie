@@ -1,5 +1,6 @@
-package com.web.mspaie.model;
+package com.web.mspaie.models;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -16,41 +17,31 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "etudiants")
-public class Etudiant {
-	
+public class Etudiant  implements Serializable{
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String nom;
 	private String prenom;
 	private Date dateNaissance;
 	private String lieuNaissance;
-	private String adresse;
-	private int telephone;
-
-
-
+	private String sexe;
 
 	private String ecolePrecedant;
-	private String classePrecedant;
-	@Column(nullable = true, length = 64)
-    private String photos;
-	private int matricule;
-	
-	
+	private String email;
+	private String adresse;
+
 	@JsonBackReference(value = "classe")
 	@ManyToOne
 	private Classe classe;
-	@OneToOne(fetch = FetchType.LAZY,
-            cascade =  CascadeType.ALL,
-            mappedBy = "etudiant")
-    private Inscription inscription;
-	@OneToOne(fetch = FetchType.LAZY,
-            cascade =  CascadeType.ALL,
-            mappedBy = "etudiant")
-    private ReInscription reinscription;
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "etudiant")
+	private Inscription inscription;
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "etudiant")
+	private ReInscription reinscription;
 	@JsonBackReference(value = "parent")
 	@ManyToOne
 	private Parent parent;
@@ -67,23 +58,21 @@ public class Etudiant {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 
-	public Etudiant(Long id, String nom, String prenom, Date dateNaissance, String lieuNaissance, String adresse,
-			int telephone, String ecolePrecedant, String classePrecedant, String photos, int matricule, Classe classe,
-			Inscription inscription, ReInscription reinscription, Parent parent, Tiers tiers, List<Facture> factures,
-			List<Recu> recus) {
+	public Etudiant(Long id, String nom, String prenom, Date dateNaissance, String lieuNaissance, String sexe,
+			String ecolePrecedant, String email, String adresse, Classe classe, Inscription inscription,
+			ReInscription reinscription, Parent parent, Tiers tiers, List<Facture> factures, List<Recu> recus) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaissance = dateNaissance;
 		this.lieuNaissance = lieuNaissance;
-		this.adresse = adresse;
-		this.telephone = telephone;
+		this.sexe = sexe;
 		this.ecolePrecedant = ecolePrecedant;
-		this.classePrecedant = classePrecedant;
-		this.photos = photos;
-		this.matricule = matricule;
+		this.email = email;
+		this.adresse = adresse;
 		this.classe = classe;
 		this.inscription = inscription;
 		this.reinscription = reinscription;
@@ -92,6 +81,7 @@ public class Etudiant {
 		this.factures = factures;
 		this.recus = recus;
 	}
+
 
 	public Long getId() {
 		return id;
@@ -133,20 +123,12 @@ public class Etudiant {
 		this.lieuNaissance = lieuNaissance;
 	}
 
-	public String getAdresse() {
-		return adresse;
+	public String getSexe() {
+		return sexe;
 	}
 
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
-
-	public int getTelephone() {
-		return telephone;
-	}
-
-	public void setTelephone(int telephone) {
-		this.telephone = telephone;
+	public void setSexe(String sexe) {
+		this.sexe = sexe;
 	}
 
 	public String getEcolePrecedant() {
@@ -157,28 +139,20 @@ public class Etudiant {
 		this.ecolePrecedant = ecolePrecedant;
 	}
 
-	public String getClassePrecedant() {
-		return classePrecedant;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setClassePrecedant(String classePrecedant) {
-		this.classePrecedant = classePrecedant;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getPhotos() {
-		return photos;
+	public String getAdresse() {
+		return adresse;
 	}
 
-	public void setPhotos(String photos) {
-		this.photos = photos;
-	}
-
-	public int getMatricule() {
-		return matricule;
-	}
-
-	public void setMatricule(int matricule) {
-		this.matricule = matricule;
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
 	}
 
 	public Classe getClasse() {
@@ -236,8 +210,6 @@ public class Etudiant {
 	public void setRecus(List<Recu> recus) {
 		this.recus = recus;
 	}
-
-	
 	
 
 }

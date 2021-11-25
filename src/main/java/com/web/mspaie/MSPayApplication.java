@@ -63,8 +63,8 @@ public class MSPayApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-
-	/*	// ///////create the levels /////////////////////
+/*
+		// ///////create the levels /////////////////////
 		Niveau niveau1 = new Niveau(null, "Ingenierie ", 2022, null, null);
 		niveauRepository.save(niveau1);
 		Niveau niveau2 = new Niveau(null, "Preparatoire", 2022, null, null);
@@ -116,11 +116,11 @@ public class MSPayApplication implements CommandLineRunner {
 
 	*/	
 		/////////// il faut affiche les données///////////////////////////////////
-		/*
-		 * niveauRepository.findAll().forEach(cp ->{
-		 * System.out.println(cp.getAnneeScolaire());
-		 * System.out.println(cp.getLibelle()); });
-		 */
+		
+		  niveauRepository.findAll().forEach(cp ->{
+		  System.out.println(cp.getAnneeScolaire());
+		  System.out.println(cp.getLibelle()); });
+		 
 
 	}
 

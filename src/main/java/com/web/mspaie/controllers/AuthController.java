@@ -1,4 +1,4 @@
-package com.web.mspaie.controller;
+package com.web.mspaie.controllers;
 
 import java.util.HashSet;
 import java.util.List;
@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.web.mspaie.model.ERole;
-import com.web.mspaie.model.Role;
-import com.web.mspaie.model.User;
+import com.web.mspaie.models.ERole;
+import com.web.mspaie.models.Role;
+import com.web.mspaie.models.User;
 import com.web.mspaie.payload.request.LoginRequest;
 import com.web.mspaie.payload.request.SignupRequest;
 import com.web.mspaie.payload.response.JwtResponse;
@@ -30,9 +30,7 @@ import com.web.mspaie.payload.response.MessageResponse;
 import com.web.mspaie.repository.RoleRepository;
 import com.web.mspaie.repository.UserRepository;
 import com.web.mspaie.security.jwt.JwtUtils;
-// @formatter:on
 import com.web.mspaie.security.services.UserDetailsImpl;
-
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -89,9 +87,9 @@ public class AuthController {
 		}
 
 		// Create new user's account
-		User user = new User(null, signUpRequest.getUsername(), 
+		User user = new User(signUpRequest.getUsername(), 
 							 signUpRequest.getEmail(),
-							 encoder.encode(signUpRequest.getPassword()), null, null);
+							 encoder.encode(signUpRequest.getPassword()));
 
 		Set<String> strRoles = signUpRequest.getRole();
 		Set<Role> roles = new HashSet<>();

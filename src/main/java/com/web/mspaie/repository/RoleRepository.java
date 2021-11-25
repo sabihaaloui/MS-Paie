@@ -1,19 +1,14 @@
 package com.web.mspaie.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.web.mspaie.model.Role;
+import com.web.mspaie.models.ERole;
+import com.web.mspaie.models.Role;
 
-import com.web.mspaie.model.RoleName;
-
-import java.util.Optional;
-
-/**
- * @author thoma
- *
- */
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {
-    Optional<Role> findByName(RoleName roleName);
+	Optional<Role> findByName(ERole name);
 }

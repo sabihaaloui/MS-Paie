@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 
-import com.web.mspaie.model.Service;
+import com.web.mspaie.models.Service;
 
 /**
  * @author thoma

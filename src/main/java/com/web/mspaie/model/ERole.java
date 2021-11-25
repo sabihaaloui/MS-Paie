@@ -4,8 +4,8 @@ package com.web.mspaie.model;
  * @author thoma
  *
  */
-public enum  RoleName {
-    ROLE_USER,
-    ROLE_ADMIN,
-    ROLE_MANAGER
+public enum  ERole {
+	ROLE_USER,
+    ROLE_MODERATOR,
+    ROLE_ADMIN
 }

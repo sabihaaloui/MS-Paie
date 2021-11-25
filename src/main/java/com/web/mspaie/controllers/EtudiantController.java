@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.web.mspaie.controller;
+package com.web.mspaie.controllers;
 
 import javax.validation.Valid;
 
@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.web.mspaie.exception.ResourceNotFoundException;
-import com.web.mspaie.model.Classe;
-import com.web.mspaie.model.Etudiant;
+import com.web.mspaie.models.Classe;
+import com.web.mspaie.models.Etudiant;
 import com.web.mspaie.repository.ClasseRepository;
 import com.web.mspaie.repository.EtudiantRepository;
 import com.web.mspaie.repository.NiveauRepository;
@@ -33,7 +33,7 @@ import com.web.mspaie.repository.NiveauRepository;
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
-@RequestMapping(value="/api/v1")
+@RequestMapping(value="/api/v2")
 public class EtudiantController {
 	@Autowired
 	private EtudiantRepository etudiantRepository;
@@ -69,17 +69,13 @@ public class EtudiantController {
 			etudiant.setPrenom(etudiantRequest.getPrenom());
 			etudiant.setDateNaissance(etudiantRequest.getDateNaissance());
 			etudiant.setLieuNaissance(etudiantRequest.getLieuNaissance());
-			etudiant.setAdresse(etudiantRequest.getAdresse());
-			etudiant.setTelephone(etudiantRequest.getTelephone());
-			//etudiant.setNomPere(etudiantRequest.getNomPere());
-			//etudiant.setNomMere(etudiantRequest.getNomMere());
-			//etudiant.setFonctionPere(etudiantRequest.getFonctionPere());
-			//etudiant.setFonctionMere(etudiantRequest.getFonctionMere());
-			etudiant.setTelephone(etudiantRequest.getTelephone());
+			etudiant.setSexe(etudiantRequest.getSexe());
 			etudiant.setEcolePrecedant(etudiantRequest.getEcolePrecedant());
-			etudiant.setClassePrecedant(etudiantRequest.getClassePrecedant());
-			etudiant.setPhotos(etudiantRequest.getPhotos());
-			etudiant.setMatricule(etudiantRequest.getMatricule());
+			etudiant.setEmail(etudiantRequest.getEmail());
+			
+			
+			etudiant.setAdresse(etudiantRequest.getAdresse());
+			
 			
 			
 			// classe.setLibelle(classe.getLibelle());
